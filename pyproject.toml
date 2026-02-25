@@ -1,0 +1,23 @@
+[project]
+name = "windows-cli-generator"
+version = "0.1.0"
+description = "AI-powered Windows CLI command generator using OpenAI"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gradio>=4.0.0",
+    "google-genai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "certifi>=2024.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []
+package = false
+
+[tool.hatch.build.targets.wheel]
+packages = []
