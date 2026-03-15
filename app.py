@@ -101,7 +101,6 @@ def create_gradio_interface():
                     placeholder="הפקודה תופיע כאן...",
                     lines=5,
                     elem_classes="output-box",
-                    show_copy_button=True
                 )
         
         gr.Markdown("""
