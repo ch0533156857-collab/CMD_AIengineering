@@ -11,14 +11,13 @@ os.environ["GRPC_DEFAULT_SSL_ROOTS_FILE_PATH"] = certifi.where()
 os.environ["SSL_CERT_FILE"] = certifi.where()
 os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
 
-from google import genai
-from google.genai import types
+import cohere
 import gradio as gr
 
 # ------------------------------
 # אתחול מודל
 # ------------------------------
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = cohere.ClientV2(api_key=os.getenv("COHERE_API_KEY"))
 
 # ------------------------------
 # פרומפט מערכת
@@ -36,14 +35,14 @@ def natural_to_cli(user_input: str) -> str:
         return "אנא הכניסי הוראה."
 
     try:
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT,
-            ),
-            contents=f"הוראה: {user_input}",
+        response = client.chat(
+            model="command-r-plus",
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": f"הוראה: {user_input}"}
+            ]
         )
-        command = response.text.strip()
+        command = response.message.content[0].text.strip()
         # מחזיר שורה ראשונה בלבד
         return command.split("\n")[0].strip()
     except Exception as e:
