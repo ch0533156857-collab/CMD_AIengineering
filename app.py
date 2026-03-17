@@ -65,7 +65,7 @@ def create_gradio_interface():
         gr.HTML("""
             <div class="main-header">
                 <h1>🖥️ Windows CLI Command Generator</h1>
-                <p style="font-size: 18px; margin-top: 10px;">תרגום הוראות לפקודות Windows | Powered by Gemini</p>
+                <p style="font-size: 18px; margin-top: 10px;">תרגום הוראות לפקודות Windows | Powered by Cohere</p>
             </div>
         """)
         
