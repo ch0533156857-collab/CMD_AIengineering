@@ -36,7 +36,7 @@ def natural_to_cli(user_input: str) -> str:
 
     try:
         response = client.chat(
-            model="command-r-plus",
+            model="command-r-08-2024",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": f"הוראה: {user_input}"}
