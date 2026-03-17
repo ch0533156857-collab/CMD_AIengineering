@@ -1,4 +1,4 @@
 gradio
-google-genai
 python-dotenv
 certifi
+cohere
