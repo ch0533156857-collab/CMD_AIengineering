@@ -136,8 +136,8 @@ def create_gradio_interface():
 # הרצת הממשק
 # ------------------------------
 if __name__ == "__main__":
-    if not os.getenv("GEMINI_API_KEY"):
-        print("❌ שגיאה: GEMINI_API_KEY לא נמצא בקובץ .env")
+    if not os.getenv("COHERE_API_KEY"):
+        print("❌ שגיאה: COHERE_API_KEY לא נמצא בקובץ .env")
         exit(1)
     
     print("🚀 מתחיל את האפליקציה...")
